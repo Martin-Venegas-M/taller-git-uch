@@ -26,7 +26,7 @@ class: inverse, left, middle
 # _Control de versiones: Git y GitHub._
 
 
-Martín Venegas Márquez $^1$
+Martín Venegas Márquez
 
 
 ***
@@ -35,7 +35,6 @@ Martín Venegas Márquez $^1$
 <br>
 
 #### Marzo, 2025
-##### $^1$ Universidad de Chile
 
 ---
 # Contenidos de la sesión 
@@ -48,31 +47,23 @@ Martín Venegas Márquez $^1$
 
 **¿Por qué utilizar el control de versiones?**
 
-1. Crisis en la ciencia
+1. Credibilidad
 
-2. Reproducibilidad
+2. Eficiencia
 
 ]
-
 
 .right-column[
-**Sección práctica**
-
-1. Herramientas: Introducción a R Markdown
-
-2. Ejercicio control de versiones
 
 **Control de versiones y reproducibilidad**
+1. Git y Github
 
-1. Conceptos centrales
+2. Conceptos centrales
 
-2. Trabajo colaborativo
+2. Ejemplos
 
-3. Repositorios: remote y local   
-
-4. Clone, Branch, Commit, Push... pull request (?)
+3. Aplicando lo aprendido
 ]
-
 ---
 class: middle, center, inverse
 
@@ -86,7 +77,7 @@ class: middle, center, inverse
 ]
 
 .right-column[
-> Los sistemas de control de versiones son un tipo de **software** que ayuda a hacer un **seguimiento de los cambios** realizados en el código a lo largo del **tiempo**. A medida que un desarrollador edita el código, el sistema de control de versiones toma una instantánea de los archivos. Después, guarda esa instantánea de forma permanente para que se pueda **recuperar** más adelante si es necesario ([Microsoft](https://learn.microsoft.com/es-es/devops/develop/git/what-is-version-control))
+> Los sistemas de control de versiones son un tipo de **software** que ayuda a hacer un **seguimiento de los cambios** realizados en el código a lo largo del **tiempo**. A medida que un desarrollador edita el código, el sistema de control de versiones toma una [foto] de los archivos. Después, guarda esa [foto] de forma permanente para que se pueda **recuperar** más adelante si es necesario ([Microsoft](https://learn.microsoft.com/es-es/devops/develop/git/what-is-version-control))
 
 ]
 ![:scale 15%](images/git.png)
@@ -99,16 +90,13 @@ class: middle, center, inverse
 
 - Google Docs y Microsoft Word como las formas más conocidas de llevar un registro de cambios: **control de cambios e historial de versiones**
 
-- Usar el nombre de los archivos para denotar la versión
+- **Lo más común:** usar el nombre de los archivos para denotar la versión
 
 ![:scale 30%](images/googledocs.png)
 ![:scale 20%](images/word.png)
 
 ---
-![](images/versioncontrol3.png)
----
-
-![](images/final2.jpg)
+.center[![:scale 90%](images/final2.jpg)]
 ---
 
 .center[
@@ -121,7 +109,7 @@ class: middle, center, inverse
 ---
 class: middle, center, inverse
 
-# _¿Por qué usar el control de versiones_
+# _¿Por qué usar el control de versiones?_
 
 ---
 class: middle, center, inverse
@@ -191,27 +179,6 @@ Gradación del comportamiento integro en investigación. Imagen de [Steneck (200
 
 - **Escepticismo organizado:** La necesidad de prueba o verificación somete a la ciencia a más escrutinio que cualquier otro campo.
 ---
-# ¿Qué podemos hacer?
-
-.left-column[
-
-* Para incrementar la transparencia debemos actuar sobre los distintos **momentos de una investigación**
-
-1. Diseño 
-2. Procedimientos
-3. Pre-publicación
-4. Publicación 
-]
-
-.right-column[
-* Crüwell et al. (2018) propone avanzar a una cultura que promueva:
-
-  * Pre-registros
-  * **Acceso abierto:** la importancia de los datos, material y código abierto.
-  * Análisis **reproducibles**
-  * La **replicación** 
-  * Enseñanza de la ciencia abierta]
----
 # ¿Cómo avanzamos?
 
 * Prácticas de investigación orientadas a la reproducibilidad:
@@ -220,7 +187,7 @@ Gradación del comportamiento integro en investigación. Imagen de [Steneck (200
   * Código de análisis abierto (Github, OSF)
   * Uso de software libre y de código abierto (R, Python, Markdown)
   * Protocolos de trabajo reproducible (TIER project)
-  * Control de versiones (Git)
+  * **Control de versiones (Git)**
 
 .center[
 
@@ -230,21 +197,31 @@ Gradación del comportamiento integro en investigación. Imagen de [Steneck (200
 
 ---
 
-![](secundarios/imagenes/definitions.jpg)
+.center[![:scale 90%](images/definitions.jpg)]
 
 ---
-![](images/reproducible.jpg)
+.center[![](images/reproducible.jpg)]
 ---
 class: middle, center, inverse
 
 # _Segunda razón: eficiencia_
 
 ---
-- Proyectos grandes y complejos: muchas decisiones entre muchas personas a través del tiempo
+# Contexto: proyectos grandes/complejos
 
-- Necesidad de organizar esta complejidad, minimizar errores y hacer flujos de trabajos más eficientes
+.left-column[
+- **Trabajo en equipo:** distintas opiniones y formas de trabajar
 
-- Del control de versiones a entornos colaborativos
+- **Muchos archivos:** informes, _scripts de código_, presentaciones, tablas etc.
+]
+
+.right-column[
+- **Muchas decisiones que tomar:** sobre el diseño de investigación, análisis, exploraciones etc.
+
+- **A través del tiempo:** prueba y error, cambios de opinión, reiteración.
+]
+.center[![:scale 60%](images/decs.png)]
+
 ---
 ## Bowers, J., & Voors, M. (2016)
 
@@ -272,108 +249,128 @@ class: middle, center, inverse
 
 # _¿Cómo utilizar el control de versiones?_
 ---
-# Control de versiones
+# Git: un software de control de versiones
 
-* Un flujo de trabajo basado en **Git** facilita:
-  
-  1. Control sobre versiones de uno o más documentos.
-  2. Observar "pasado y presente" de un proyecto completo.
-  2. Apertura y transparencia (repositorios). 
-  3. Trabajo Colaborativo
-  4. **Estructura de proyectos**
-  
----
-# Colaboración
+> Git es una **herramienta** para el control de versiones que permite **registrar y organizar** los cambios en documentos y datos a lo largo del tiempo. En investigación social, **facilita la colaboración** entre equipos, el rastreo de modificaciones en códigos de análisis o textos académicos, y la reproducción transparente de resultados.
 
 .left-column[
+- Es una especie de memoria o registro local que guarda información sobre: qué cambio se hizo, quién lo hizo y cuándo lo hizo.
 
-* Una de las ventajas de trabajar en un marco basado en Git es que podemos colaborar con diferentes personas dentro de un **mismo proyecto**. (p.ej. tutor-estudiante, equipo de trabajo, etc)
+- Mantiene la información de todos los cambios en la historia de la carpeta/repositorio local.
 
-* Controlar qué es lo que _cambia_ y qué es lo que se _conserva_.
-
-* **Aceptar** o **rechazar** cambios surgeridos por otr-s usuari-s 
-
+- Se puede sincronizar con repositorio remoto (ej. Github o Gitlab).
 ]
-
-.right-column[![:scale 100%](images/collab-github.PNG) ]
+.right[![:scale 30%](images/git.png)]
 
 ---
-# Repositorios: remote y local
 
+# Github: una plataforma colaborativa
 
-> **Repositorio**: Un directorio o espacio de almacenamiento donde pueden _vivir_ sus proyectos. A veces los usuarios de GitHub acortan esto a "repo". 
+> GitHub es una **plataforma** de desarrollo colaborativo basada en Git que permite **alojar repositorios**, gestionar el control de versiones y facilitar la colaboración en proyectos de software y otros tipos de documentos. **Ofrece herramientas** para compartir código, coordinar equipos, hacer revisiones de cambios y automatizar flujos de trabajo.
 
-> Puede ser local a una carpeta de tu ordenador, o puede ser un espacio de almacenamiento en GitHub o en otro host online. Puedes guardar archivos de código, de texto, de imagen, lo que quieras, dentro de un repositorio.
+.left-column[
+- Red social de código. Pensada para desarrolladores, pero utilizada por personas de múltiples disciplinas.
 
+- Alberga miles de repositorios públicos. Fomenta el código abierto, la transparencia y la reproducibilidad.
 
-.center[![:scale 50%](https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70/learn/projects/develop-app-with-salesforce-cli-and-source-control/add-salesforce-dx-project-to-source-control/images/bf546ec3acd964673bf5f6302125fd93_step-4-github-and-git-clones.png)
+- Guarda la carpeta de trabajo en una "nube".
 ]
+.right[![:scale 30%](images/github.png)]
 
 ---
+# Git ≠ Github
 
-**Clone**: Se utiliza para apuntar a un repositorio existente y crear un clon, o una copia del repositorio de destino. 
+- Git es un sistema de control de versiones distribuido que se utiliza de manera local (en el propio computador)
 
-**Branch**: Una "branch" representa una línea independiente de trabajo. Las _branches_ sirven como una abstracción de los procesos de cambio, preparación y confirmación.
-
-**Commit**: Una confirmación, o "revisión", es un cambio individual en un archivo (o conjunto de archivos). Con Git, cada vez que lo guardas se crea un ID único (también conocido como "SHA" o "hash") que te permite llevar un registro de qué cambios se hicieron cuándo y por quién.
-
-**Push**: El comando "push" se usa para publicar nuevos commits locales en un servidor remoto.
-
-**Fetch**: El comando "fetch" descarga commits, archivos y referencias de un repositorio remoto a tu repositorio local. "Fetch" es lo que haces cuando quieres ver en qué han estado trabajando los demás.
-
-
-**Pull**: Se usa para recuperar y descargar contenido de un repositorio remoto e inmediatamente actualizar el repositorio local para que coincida con ese contenido. 
+- GitHub es un servicio en la nube que permite almacenar repositorios Git y colaborar en ellos con otras personas.
 
 ---
+# Ejemplo Git
 
-.center[![:scale 70%](images/git-flux.png)]
+![](images/git-console.png)
+---
+# Ejemplo Github
+
+![:scale 70%](images/github-page.png)
 
 ---
-**Pull request**: Son una característica específica de `GitHub.` Proporcionan una forma simple, basada en la web, de enviar tus cambios. En concreto, es pedirle al proyecto (main-branch) que extraiga los cambios de tu branch.
+# Conceptos centrales
 
-.center[![:scale 70%](https://miro.medium.com/max/600/1*ubVyD2GaOAlSfqRNbL0Bjg.png)]
+## 1. Repositorio _(Repository)_
 
----
-# Práctica
+Es el espacio donde se almacenan todos los archivos, su historial de cambios y las configuraciones del proyecto. Puede ser local (en el computador propio) o remoto (en plataformas como Github).
 
-## Parte I: individual
 
-1. Crear un repositorio independiente que se llame "taller-git".
-2. Clonar localmente usando RStudio
-2. Modificar localmente desde *main*
-  * Realizar commit local
-  * Realizar push hacia el repositorio remoto (en GitHub)
-3. Chequear cambios online  
-  
----
-# Práctica
-## Parte II: colaborativo
-
-1. Clonar el repositorio [jciturras/git-elsoc](https://github.com/jciturras/git-elsoc.git) localmente usando RStudio.
-2. Seleccionar una branch  (metodos o antecedentes)
-3. Crear un archivo .Rmd para cada una de las branches
-  * `metodos.Rmd`
-  * `antecedentes.Rmd`
-4. Lograr 'guardar' cambios a través de un commit en su branch respectiva
-5. Realizar push hacia el repositorio remoto (en GitHub)
-6. Pull Request $\rightarrow$ main (remote)
 
 ---
-# Algunos tips de configuración 
+# Conceptos centrales
 
-En RStudio:
+## 2. Confirmaciones _(Commits)_
 
-> Tools $\rightarrow$ Terminal $\rightarrow$ New Terminal (`Alt+Shift+R`)
+Cada commit es una "foto" del estado del proyecto en un momento específico. Incluye:
+- ✅ Los archivos y cambios realizados.
+- ✅ Un identificador único (hash SHA-1).
+- ✅ Un mensaje descriptivo sobre el cambio.
+---
+# Conceptos centrales
 
-```{r echo=TRUE,eval=F}
-git config --global user.email "usuario2021@gmail.com" 
-git config --global user.name "nombreusuario"
-```
+## 3. Área de preparación _(Staging Area / Index)_
+
+Es un espacio intermedio donde seleccionamos los cambios que queremos incluir en el próximo commit.
+
+`git add archivo.R` → Mueve el archivo al staging area.
+
+`git commit -m "Descripción del cambio"` → Guarda los cambios en el historial.
 
 ---
-class: middle, center
+# Conceptos centrales
+## 4. Ramas _(Branches)_
 
-### `r  fontawesome::fa(name = "github", fill = "black")` <br> [github.com/jciturras](https://github.com/jciturras) 
+Son líneas independientes de desarrollo o análisis que permiten trabajar en nuevas características o exploraciones sin afectar la versión principal.
+
+`git branch nueva_rama` → Crea una nueva rama.
+
+`git checkout nueva_rama` → Cambia a la nueva rama.
+
+---
+# Conceptos centrales
+## 5. Fusionar cambios _(Merge y Rebase)_
+
+Cuando trabajamos con ramas, necesitamos combinarlas:
+
+`git merge` → Une los cambios de una rama a otra a través de un _commit_.
+
+`git rebase` → Reaplica cambios de una rama sobre otra para mantener un historial más limpio.
+
+---
+# Conceptos centrales
+## 6. Repositorios remotos _(Remotes)_
+
+Git permite sincronizar repositorios locales con remotos para colaborar en equipo.
+
+`git remote add origin <URL>` → Conectar con un repositorio remoto.
+
+`git push` → Enviar cambios al repositorio remoto.
+
+`git pull` → Descargar cambios desde el repositorio remoto.
+
+---
+# Conceptos centrales
+
+## 7. Historial y deshacer cambios _(History)_
+
+Git permite inspeccionar el historial y corregir errores.
+
+`git log` → Muestra el historial de commits.
+
+`git revert` → Revierte un commit sin eliminarlo del historial.
+
+`git reset` → Borra commits o deshace cambios en el área de preparación.
+
+---
+class: middle, center, inverse
+
+### ¡Muchas gracias! 
 
 
 
