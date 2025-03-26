@@ -94,6 +94,8 @@ class: middle, center, inverse
 
 ![:scale 30%](images/googledocs.png)
 ![:scale 20%](images/word.png)
+---
+.center[![](images/versionhistory.png)]
 
 ---
 .center[![:scale 90%](images/final2.jpg)]
@@ -197,7 +199,7 @@ Gradación del comportamiento integro en investigación. Imagen de [Steneck (200
 
 ---
 
-.center[![:scale 90%](images/definitions.jpg)]
+.center[![:scale 85%](images/definitions.jpg)]
 
 ---
 .center[![](images/reproducible.jpg)]
@@ -291,23 +293,75 @@ class: middle, center, inverse
 ---
 # Ejemplo Github
 
-![:scale 70%](images/github-page.png)
+![:scale 85%](images/github-page.png)
+
+---
+# Git y Rstudio
+
+**¡IMPORTANTE!**
+
+- Git es el software que hace el trabajo de llevar el control de versiones y funciona a través de comandos en consola. Trabajar en él puede ser un poco criptico al principio.
+
+- Es recomendable trabajar con alguna GUI (Interfaz Gráfica de Usuario) para facilitar su uso
+
+- Existen varias GUI para utilizar Git, nosotros utilizaremos las funciones que ofrece Rstudio (algo limitadas, pero cubren gran parte de lo que uno necesita).
+
+![:scale 20%](images/rstudio-logo.png)
+![:scale 20%](images/git.png)
+
+
 
 ---
 # Conceptos centrales
 
 ## 1. Repositorio _(Repository)_
 
-Es el espacio donde se almacenan todos los archivos, su historial de cambios y las configuraciones del proyecto. Puede ser local (en el computador propio) o remoto (en plataformas como Github).
+- Es el espacio donde se almacenan todos los archivos, su historial de cambios y las configuraciones del proyecto. **Puede ser local (en el computador propio) o remoto (en plataformas como Github).**
 
+- En concreto, es equivalente a una carpeta del computador.
 
+- El contenido de la carpeta puede variar dependiendo del alcance del proyecto y de las tareas. Un repositorio puede ser un paper/informe, una parte del procesamiento de datos o un proyecto entero (ej. Fondecyt).
 
 ---
 # Conceptos centrales
 
+## 1. Repositorio _(Repository)_
+
+### Primero veremos como inicializar un repositorio local a través de RStudio.
+
+### Más adelante, cuando veamos el concepto de _Repositorio remoto_, veremos como inicializar un repositorio conectado a Github.
+---
+## Inicializar un repositorio local en Rstudio
+
+Project > New project
+
+.center[![:scale 63%](images/rstudio1.png)]
+---
+## Inicializar un repositorio local en Rstudio
+
+Project > New project > New directory
+
+.center[![:scale 63%](images/rstudio2.png)]
+---
+## Inicializar un repositorio local en Rstudio
+
+Escoger nombre carpeta, ubicación y activar casilla _Create a git directory_
+
+.center[![:scale 63%](images/rstudioa.png)]
+---
+## Inicializar un repositorio local en Rstudio
+
+Aparecen botones asociados a Git:
+
+.center[![:scale 63%](images/rstudiob.png)]
+---
+
+# Conceptos centrales
+
 ## 2. Confirmaciones _(Commits)_
 
-Cada commit es una "foto" del estado del proyecto en un momento específico. Incluye:
+Cada _commit_ es una "foto" del estado del proyecto en un momento específico. Incluye:
+
 - ✅ Los archivos y cambios realizados.
 - ✅ Un identificador único (hash SHA-1).
 - ✅ Un mensaje descriptivo sobre el cambio.
@@ -316,47 +370,298 @@ Cada commit es una "foto" del estado del proyecto en un momento específico. Inc
 
 ## 3. Área de preparación _(Staging Area / Index)_
 
-Es un espacio intermedio donde seleccionamos los cambios que queremos incluir en el próximo commit.
+- Es un espacio intermedio donde seleccionamos los cambios que queremos incluir en el próximo _commit_. 
 
-`git add archivo.R` → Mueve el archivo al staging area.
+- Se puede pensar como lo que tenemos "arriba del escritorio/escenario" para ser revisado.
+
+`git add archivo.R` → Mueve el archivo al _staging area_.
 
 `git commit -m "Descripción del cambio"` → Guarda los cambios en el historial.
 
 ---
-# Conceptos centrales
-## 4. Ramas _(Branches)_
+## _Stage_ y _Commit_ en Rstudio
 
-Son líneas independientes de desarrollo o análisis que permiten trabajar en nuevas características o exploraciones sin afectar la versión principal.
+Tenemos archivos nuevos o con cambios.
 
-`git branch nueva_rama` → Crea una nueva rama.
+.center[![:scale 63%](images/rstudioc.png)]
 
-`git checkout nueva_rama` → Cambia a la nueva rama.
+---
+## _Stage_ y _Commit_ en Rstudio
+
+Al hacer click en _Stage_ lo estamos "subiendo al escenario"
+
+.center[![:scale 63%](images/rstudiod.png)]
+
+---
+## _Stage_ y _Commit_ en Rstudio
+
+Al hacer click en _Commit_ se abre una ventana para revisar los cambios e introducir mensaje:
+
+.center[![:scale 63%](images/rstudioe.png)]
+
+---
+## _Stage_ y _Commit_ en Rstudio
+
+Al hacer click en _Commit_ se debería ver algo como esto:
+
+.center[![:scale 63%](images/rstudiof.png)]
 
 ---
 # Conceptos centrales
-## 5. Fusionar cambios _(Merge y Rebase)_
+## 4. Repositorios remotos _(Remotes)_
 
-Cuando trabajamos con ramas, necesitamos combinarlas:
+- El trabajo con un repositorio local es útil para tener un historial propio, pero la funcionalidad más potente de Git es la facilidad que da para la colaboración. 
+- Git entrega esta facilidad a través de la sincronización entre repositorios locales y remotos.
 
-`git merge` → Une los cambios de una rama a otra a través de un _commit_.
+- Existen distintas formas de conectar con el repositorio remoto, dependiendo del estado del trabajo. Las principales son: 
 
-`git rebase` → Reaplica cambios de una rama sobre otra para mantener un historial más limpio.
+1. Nuevo proyecto, Github primero
+2. Proyecto existente, Github primero
+3. Proyecto existente, Github al final
 
 ---
 # Conceptos centrales
-## 6. Repositorios remotos _(Remotes)_
+## 4. Repositorios remotos _(Remotes)_
 
-Git permite sincronizar repositorios locales con remotos para colaborar en equipo.
+- El trabajo con un repositorio local es útil para tener un historial propio, pero la funcionalidad más potente de Git es la facilidad que da para la colaboración. 
+- Git entrega esta facilidad a través de la sincronización entre repositorios locales y remotos.
 
-`git remote add origin <URL>` → Conectar con un repositorio remoto.
+- Existen distintas formas de conectar con el repositorio remoto, dependiendo del estado del trabajo. Las principales son: 
+
+1. **Nuevo proyecto, Github primero → ¡Esta es la que veremos aquí!**
+2. Proyecto existente, Github primero
+3. Proyecto existente, Github al final
+
+---
+# Conceptos centrales
+## 4. Repositorios remotos _(Remotes)_
+
+- El repositorio remoto es una suerte de nube del cual subimos y bajamos cambios recurrentemente (nuestros o de otros miembros del equipo)
+
+- Los comandos principales son:
 
 `git push` → Enviar cambios al repositorio remoto.
 
 `git pull` → Descargar cambios desde el repositorio remoto.
 
 ---
-# Conceptos centrales
+.center[![](images/git-workflow.png)]
+---
+## Crear repositorio remoto desde Github
 
+En Github, ir al perfil propio y hacer click en botón verde "New".
+
+.center[![:scale 80%](images/new_repo.png)]
+
+---
+## Crear repositorio remoto desde Github
+
+.left-column[Introducir la información del repositorio:
+
+- _**Repository template:**_ no es necesario por ahora
+- _**Repository name:**_ escoger un nombre (sin espacios)
+- _**Description:**_ descripción breve del repositorio
+- _**Public o Private:**_ público (a menos que haya una razón para dejarlo privado)
+- _**Add a README file:**_ marcar casilla
+- _**Add .gitignore:**_ R (a menos que se use otro programa)
+- _**Choose a license:**_ ninguna
+
+Apretar botón verde "Create repository"
+]
+.right[![:scale 40%](images/new_repo2.png)]
+---
+## Crear repositorio remoto desde Github
+
+Así se verá el repo creado:
+
+.center[![:scale 80%](images/new_repo3.png)]
+---
+## Clonar repositorio remoto
+
+Code > HTTPS > Copiar URL
+
+.center[![:scale 80%](images/clone_repo.png)]
+---
+## Clonar repositorio remoto
+
+RStudio > New project > Version control
+
+.center[![:scale 63%](images/clone_repo2.png)]
+
+---
+## Clonar repositorio remoto
+
+RStudio > New project > Version control > Git > Pegar URL > Create project
+
+.center[![:scale 63%](images/clone_repo3.png)]
+
+---
+## Hacer cambios, commit, pull, push
+
+Crear/modificar archivos > _stage_ > _commit_
+
+.center[![:scale 63%](images/clone_repo4.png)]
+
+---
+## Hacer cambios, commit, pull, push
+
+Hacer pull (⬇) de los cambios en el remoto. En este caso, todo al día.
+
+.center[![:scale 63%](images/git-pull.png)]
+
+---
+## Hacer cambios, commit, pull, push
+
+Hacer push (⬆) de los commits realizados
+
+.center[![:scale 63%](images/clone_repo5.png)]
+---
+## Hacer cambios, commit, pull, push
+
+Si solicita autorización, entrar a través del navegador con las credenciales Github (o Token).
+
+.center[![:scale 63%](images/clone_repo6.png)]
+---
+## Hacer cambios, commit, pull, push
+
+Un push exitoso se debería ver asi:
+
+.center[![:scale 63%](images/clone_repo7.png)]
+
+---
+# Conceptos centrales
+## 5. Ramas _(Branches)_
+
+- Son líneas independientes de desarrollo o análisis que permiten trabajar en nuevas características o exploraciones sin afectar la versión principal.
+
+- Existe la rama principal (_main/master_) y ramas alternativas.
+
+`git branch nueva_rama` → Crea una nueva rama.
+
+`git checkout nueva_rama` → Cambia a la nueva rama.
+
+.right[![](images/branch.png)]
+---
+![](images/versioncontrol3.png)
+---
+# Conceptos centrales
+## 5. Ramas _(Branches)_
+
+Las ramas se pueden:
+
+- Crear remoto y luego descargar con un pull (⬇)
+
+- Crear local y luego subir con un push (⬆)
+---
+## Rama en remoto y luego pull (⬇)
+
+En Github, hacer click en main, luego escribir nombre de rama y apretar "_Create banch_ [nombre rama] _from main_"
+
+.center[![:scale 63%](images/rama1.png)]
+
+---
+## Rama en remoto y luego pull (⬇)
+
+Se verá así:
+
+.center[![:scale 63%](images/rama2.png)]
+
+---
+## Rama en remoto y luego pull (⬇)
+
+Ir a RStudio y hacer pull (⬇):
+
+.center[![:scale 63%](images/rama3.png)]
+
+---
+## Rama local y hacer push (⬆)
+
+En RStudio, botón morado y escribir nombre rama. En _Remote:_ debe decir _origin_. Click en crear.
+
+.center[![:scale 63%](images/rama4.png)]
+
+---
+## Rama local y hacer push (⬆)
+
+Si solicita autorización, utilizar credenciales o token Github.
+
+.center[![:scale 63%](images/rama5.png)]
+
+---
+## Rama local y hacer push (⬆)
+
+Se debería ver así:
+
+.center[![:scale 63%](images/rama6.png)]
+
+---
+## Rama local y hacer push (⬆)
+
+En Github aparecerá la nueva rama:
+
+.center[![:scale 60%](images/rama7.png)]
+
+---
+# Conceptos centrales
+## 6. Fusionar cambios _(Merge y Rebase)_
+
+Cuando trabajamos con ramas, necesitamos combinarlas. Hay dos opciones:
+
+`git merge` → Une los cambios de una rama a otra a través de un _commit_.
+
+`git rebase` → Reaplica cambios de una rama sobre otra para mantener un historial más limpio.
+
+Al comenzar a utilizar Git, es suficiente trabajar con _merge_. En proyectos más complejos puede ser útil el _rebase_.
+---
+# Ejemplo de historial (con muchos _merge_)
+
+![](images/ejemplo-enut.png)
+---
+.center[![:scale 50%](images/gits.jfif)]
+
+---
+## Fusionar por _merge_ _(pull request)_ desde Github
+
+En la branch creada (en este caso rama-prueba2) hacer cambios, stage, commit, pull, push.
+
+.center[![:scale 63%](images/merge1.png)]
+
+---
+## Fusionar por _merge_ _(pull request)_ desde Github
+
+Ir a Github, hacer click en "Compare & pull request". Esto es para abrir una solicitus de _merge_ entre la _main_ y la _rama-prueba2_.
+
+.center[![:scale 65%](images/merge2.png)]
+---
+## Fusionar por _merge_ _(pull request)_ desde Github
+
+Añadir información relevante respecto a la solicitud _(pull request)_. Por defecto el título es el nombe del último commit. Hacer click en "Create pull request".
+
+.center[![:scale 58%](images/merge3.png)]
+
+---
+## Fusionar por _merge_ _(pull request)_ desde Github
+
+Solicitud creada _(pull request)_. Aqui se puede interactuar con los miembros del equipo, revisar los cambios etc. Para aceptar la solicitud hacer clik en "Merge pull request".
+
+.center[![:scale 50%](images/merge4.png)]
+
+---
+## Fusionar por _merge_ _(pull request)_ desde Github
+
+Al aceptar la solicitud se verá así:
+
+.center[![:scale 51%](images/merge5.png)]
+
+---
+## Fusionar por _merge_ _(pull request)_ desde Github
+
+Y en Github se verá así:
+
+.center[![:scale 70%](images/merge6.png)]
+
+---
+# Conceptos centrales
 ## 7. Historial y deshacer cambios _(History)_
 
 Git permite inspeccionar el historial y corregir errores.
